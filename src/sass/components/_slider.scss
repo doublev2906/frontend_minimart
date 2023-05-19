@@ -1,0 +1,231 @@
+.slider {
+	&__title {
+		font-size: 3rem;
+		margin: 50px 0 20px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $border-color;
+	}
+}
+
+.slick-slide {
+	cursor: pointer;
+}
+
+.slick-slide {
+	padding-right: 15px;
+}
+
+.product-slider__list {
+	& .slick-list {
+		padding: 10px 0;
+	}
+}
+
+.slick-list {
+	margin-right: -15px;
+
+	& .product-card--wrap {
+		width: 100%;
+	}
+}
+
+.slick-arrow {
+	border: 1px solid;
+	border-color: rgba($color: #000000, $alpha: 0.5);
+
+	&.slick-prev,
+	&.slick-next {
+		width: unset;
+		height: unset;
+		padding: 10px 5px;
+		z-index: 99;
+		border-radius: 2px;
+		background-color: white;
+		opacity: 0.5;
+		transition: 0.25s linear;
+	}
+
+	&.slick-prev:hover,
+	&.slick-next:hover {
+		opacity: 1;
+	}
+
+	&.slick-prev::before,
+	&.slick-next::before {
+		content: unset;
+	}
+
+	&.slick-prev {
+		left: 0px;
+	}
+
+	&.slick-disabled {
+		opacity: 0.5;
+	}
+
+	&.slick-next {
+		left: 100%;
+		right: unset;
+		transform: translate(-100%, -50%);
+	}
+
+	& i {
+		color: $text-color;
+		font-size: 2rem;
+	}
+}
+
+.slider-modal {
+	display: flex;
+	width: 100%;
+
+	& .slick-arrow {
+		visibility: visible;
+		@include flex(center, center);
+		background-color: rgba($color: #000000, $alpha: 0.5);
+
+		&.slick-prev,
+		&.slick-next {
+			width: unset;
+			height: unset;
+			padding: 20px 5px;
+			z-index: 99;
+			border-radius: 2px;
+			opacity: 0.6;
+			transition: 0.25s linear;
+		}
+
+		&.slick-prev:hover,
+		&.slick-next:hover {
+			opacity: 1;
+		}
+
+		&.slick-prev::before,
+		&.slick-next::before {
+			content: unset;
+		}
+
+		&.slick-prev {
+			left: 0;
+		}
+
+		&.slick-disabled {
+			opacity: 0.6;
+		}
+
+		&.slick-next {
+			left: calc(65% - 15px);
+			right: unset;
+			transform: translate(-100%, -50%);
+		}
+
+		& i {
+			color: white;
+			font-size: 4rem;
+		}
+	}
+
+	& .slick-list {
+		width: 65%;
+		margin-right: 20px;
+	}
+
+	.slick-dots.slick-thumb {
+		position: relative;
+		inset: 0;
+
+		height: fit-content;
+		margin: 0 -15px;
+
+		display: flex !important;
+		flex-wrap: wrap;
+		flex: 1;
+		row-gap: 10px;
+		column-gap: 10px;
+
+		& li {
+			width: 80px;
+			height: 80px;
+			margin: 0;
+
+			&.slick-active {
+				border: 1px solid $primary-color;
+			}
+
+			& img {
+				width: 100%;
+				height: 100%;
+				border: 1px solid $border-color;
+			}
+		}
+	}
+}
+
+.image-slider {
+	padding: 0 20px 0 0;
+	.image-active {
+		position: relative;
+
+		&.image-has-modal {
+			cursor: pointer;
+		}
+
+		&__icon {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			font-size: 2rem;
+		}
+
+		& img {
+			border: 1px solid $border-color;
+		}
+		border-radius: 1px;
+		text-align: center;
+	}
+
+	&__list {
+		margin-top: 15px;
+	}
+
+	&__item {
+		border: 1px solid $border-color;
+		margin-right: 15px;
+		border-radius: 1px;
+
+		&--active {
+			border: 1px solid $primary-color;
+		}
+
+		&:focus-visible {
+			outline: none;
+		}
+
+		&:focus {
+			outline: none;
+		}
+
+		&:focus:not(:focus-visible) {
+			outline: none;
+		}
+	}
+
+	&--modal {
+		position: fixed;
+		inset: 0;
+		background-color: rgba($color: #000000, $alpha: 0.2);
+		z-index: 99;
+		@include flex(center, center);
+
+		&__content {
+			padding: 10px;
+			width: 60%;
+			background-color: white;
+			border-radius: 5px;
+		}
+
+		&__pictures {
+			border: 1px solid $border-color;
+		}
+	}
+}

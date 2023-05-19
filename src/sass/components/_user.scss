@@ -1,0 +1,281 @@
+.user {
+	padding-top: 40px;
+	padding-bottom: 50px;
+	position: relative;
+
+	&__setting__btn {
+		position: absolute;
+		background-color: $primary-color;
+		color: white;
+		padding: 10px 15px;
+		border-radius: 5px;
+		top: 15px;
+		left: 0;
+		z-index: 80;
+
+		font-size: 2rem;
+
+		&:hover .user__nav {
+			display: block;
+		}
+
+		& .user__nav {
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translateX(100%);
+			background-color: white;
+			width: 300px;
+			padding: 0 15px 10px;
+		}
+
+		& .user__nav__list {
+			margin-top: 0;
+		}
+
+		& .user__nav__item {
+			& i {
+				color: $text-color;
+			}
+		}
+
+		& .user__nav__link {
+			font-size: 1.6rem;
+			color: $text-color;
+		}
+
+		& .user__nav__sub-nav.open {
+			height: auto;
+		}
+	}
+
+	&__nav {
+		&__header {
+			@include flex(center);
+			font-size: 1.4rem;
+			padding-bottom: 20px;
+			border-bottom: 1px solid $border-color;
+		}
+
+		&__img {
+			@include flex(center, center);
+			color: #d6d5d5;
+			font-size: 2.2rem;
+			border: 1px solid currentColor;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+
+		&__basic-info {
+			margin-left: 15px;
+		}
+
+		&__text {
+			font-size: 1.4rem;
+		}
+
+		&__sub-text {
+			color: $sub-text-color;
+			text-transform: capitalize;
+		}
+
+		&__list {
+			margin-top: 30px;
+		}
+
+		&__item {
+			margin-top: 15px;
+			font-size: 1.4rem;
+			text-transform: capitalize;
+
+			& i {
+				margin-right: 10px;
+				font-size: 1.8rem;
+				width: 20px;
+				height: 20px;
+			}
+
+			&.sub-item {
+				margin-left: 16px;
+				color: $sub-text-color;
+			}
+		}
+
+		&__link {
+			transition: color 0.25s ease-in;
+
+			&:hover {
+				color: $primary-color;
+			}
+
+			&.active {
+				color: $primary-color;
+			}
+		}
+
+		&__sub-nav {
+			margin-left: 15px;
+			height: 0;
+			overflow: hidden;
+			opacity: 0;
+			transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+				opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		&__sub-nav.open {
+			height: 108px;
+			opacity: 1;
+		}
+	}
+
+	&__content {
+		background-color: white;
+		border-radius: 5px;
+		border: 1px solid $border-color;
+		padding: 20px 30px 40px;
+	}
+
+	&__purchase {
+		&--wrap {
+			@include mobile {
+				flex-flow: column-reverse;
+			}
+		}
+
+		&--empty {
+			border: 1px solid $border-color;
+			border-radius: 5px;
+			padding: 100px 0;
+
+			@include flex(center, center);
+			flex-direction: column;
+
+			& p {
+				font-size: 1.6rem;
+				margin-top: 20px;
+				color: $sub-text-color;
+			}
+		}
+
+		&__header {
+			&__tab {
+				@include flex(center);
+				position: relative;
+			}
+
+			&__item {
+				flex: 1;
+			}
+
+			&__link {
+				display: block;
+				font-size: 1.6rem;
+				text-align: center;
+				padding: 15px 0;
+				transition: 0.2s ease-in;
+				cursor: pointer;
+
+				&.active {
+					color: $primary-color;
+				}
+			}
+
+			&__line {
+				position: absolute;
+				bottom: 0;
+				width: 0px;
+				height: 3px;
+				border-radius: 5px;
+				background-color: $primary-color;
+				transition: 0.2s ease-in;
+			}
+		}
+
+		&__list {
+			margin-top: 30px;
+		}
+
+		&__item {
+			background-color: white;
+			border-radius: 5px;
+			padding: 20px;
+			margin-bottom: 50px;
+			border: 2px solid $border-color;
+
+			&__status {
+				text-align: right;
+				text-transform: uppercase;
+				font-size: 1.6rem;
+				border-bottom: 1px solid $border-color;
+				padding-bottom: 10px;
+				margin-bottom: 15px;
+				font-weight: 500;
+
+				&._0 {
+					color: $primary-color;
+				}
+
+				&._1 {
+					color: #2cb67d;
+				}
+
+				&._2 {
+					color: $third-color;
+				}
+			}
+
+			&__action {
+				@include flex(center);
+			}
+
+			&__sum {
+				font-size: 1.6rem;
+				text-align: right;
+				margin-left: auto;
+
+				& span {
+					font-size: 2.8rem;
+					color: $primary-color;
+					margin-left: 15px;
+				}
+			}
+		}
+
+		&__product {
+			&__item {
+				@include flex(center);
+				border-bottom: 1px solid $border-color;
+				padding-bottom: 10px;
+				margin-bottom: 20px;
+
+				&__thumbnail {
+					max-width: 80px;
+					border: 1px solid $border-color;
+					border-radius: 5px;
+					object-fit: contain;
+					margin-right: 15px;
+				}
+
+				&__info {
+					margin-right: auto;
+				}
+
+				&__name {
+					font-size: 1.6rem;
+					margin-bottom: 10px;
+				}
+
+				&__quantity {
+					font-size: 1.4rem;
+				}
+
+				&__total {
+					font-size: 1.8rem;
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}

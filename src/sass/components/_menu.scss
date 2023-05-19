@@ -1,0 +1,60 @@
+.sub-menu {
+	&__list {
+	}
+
+	&__item {
+		margin: 10px 0;
+	}
+
+	&__link {
+		font-size: 1.4rem;
+		transition: color 0.2s ease-in;
+		cursor: pointer;
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		&--not {
+			width: 100%;
+			@include flex(center, space-between);
+		}
+
+		&.active {
+			color: $primary-color;
+		}
+	}
+
+	&__icon {
+		font-size: 1.2rem;
+		margin-right: 40px;
+		transition: transform 0.25s ease-in;
+
+		&.active {
+			transform: rotate(90deg);
+		}
+	}
+}
+
+.second-menu {
+	margin-left: 20px;
+	height: 0;
+	overflow: hidden;
+
+	transition: height 0.25s ease-in;
+
+	&.active {
+		height: 248px;
+	}
+
+	&__item {
+		font-size: 1.4rem;
+		margin: 10px 0;
+		transition: color 0.2s ease-in;
+		cursor: pointer;
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+.breadcrumb {
+	margin-bottom: 0;
+	flex-wrap: nowrap;
+
+	@include tablet {
+		padding: 15px 30px;
+	}
+
+	@include mobile {
+		padding: 15px 0;
+	}
+
+	&-item {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 1.4rem;
+
+		&:last-child {
+			flex: 2;
+		}
+
+		&::before {
+			display: none;
+		}
+
+		&.active {
+			color: $primary-color;
+		}
+
+		&.active &-icon {
+			display: none;
+		}
+
+		&-link {
+			transition: color 0.25s ease-in;
+
+			&:hover {
+				color: $primary-color;
+			}
+		}
+
+		&-icon {
+			font-size: 1.2rem;
+			padding: 0 10px;
+		}
+	}
+}

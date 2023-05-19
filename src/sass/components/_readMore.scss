@@ -1,0 +1,20 @@
+.read-more {
+	width: 100%; // chiều rộng bằng khối bao nó
+	white-space: pre-wrap;
+	overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+	text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+	-webkit-box-orient: vertical;
+	text-align: justify;
+
+	font-size: 1.4rem;
+
+	&__btn {
+		color: var(--bs-blue);
+		cursor: pointer;
+		transition: color 0.2 ease-in-out;
+
+		&:hover {
+			color: $text-color;
+		}
+	}
+}

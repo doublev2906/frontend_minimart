@@ -1,0 +1,393 @@
+.cart {
+	z-index: 80;
+	margin-left: 15px;
+
+	@include mobileAndTablet {
+		margin-left: 0;
+	}
+
+	@include mobile {
+		margin-top: 15px;
+	}
+
+	&--empty {
+		@include flex(center, center);
+		flex-direction: column;
+		padding: 50px 100px;
+		font-size: 1.4rem;
+
+		& img {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__group {
+		z-index: 50;
+		position: relative;
+
+		&__menu {
+			position: absolute;
+			top: calc(100% + 30px);
+			right: 0;
+			background-color: white;
+			min-width: 320px;
+			box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.3);
+			font-size: 1.4rem;
+			border-radius: 10px;
+			visibility: hidden;
+			opacity: 0;
+			transform: scale(0);
+			transform-origin: calc(100% - 70px) top;
+			transition: all 0.3s ease-in;
+
+			&::before {
+				content: "";
+				position: absolute;
+				border: 25px solid;
+				border-color: transparent transparent white transparent;
+				top: -40px;
+				right: 70px;
+				transform: translateX(50%);
+			}
+		}
+
+		&:hover &__menu {
+			visibility: visible;
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 100%;
+			right: 0;
+			width: calc(100% + 20px);
+			height: 30px;
+			background-color: transparent;
+		}
+	}
+
+	&__button {
+		@include flex(center, center);
+		background-color: white;
+		padding: 12px 15px;
+		border-radius: 5px;
+		color: $primary-color;
+		cursor: pointer;
+
+		&:hover {
+			color: $primary-color;
+		}
+
+		& i {
+			margin-right: 5px;
+			font-size: 1.8rem;
+			position: relative;
+			top: -3px;
+		}
+
+		& p {
+			font-weight: 500;
+			font-size: 1.6rem;
+		}
+	}
+
+	&__list {
+		padding: 10px 15px;
+		max-height: 280px;
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+			border-radius: 10px;
+			background-color: #f5f5f5;
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		&::-webkit-scrollbar {
+			width: 6px;
+			background-color: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+			background-color: $sub-text-color;
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		&:hover {
+			&::-webkit-scrollbar-track,
+			&::-webkit-scrollbar-thumb {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+
+	&__item {
+		@include flex();
+		padding: 20px 0;
+
+		& + & {
+			border-top: 1px solid rgba($color: #000000, $alpha: 0.1);
+		}
+
+		&__img {
+			margin-right: 15px;
+			& img {
+				width: 100px;
+				height: 100px;
+				object-fit: cover;
+			}
+		}
+
+		&__info {
+			flex: 1;
+			@include flex(center);
+
+			&--wrap {
+				flex: 1;
+			}
+		}
+
+		&__name {
+			font-size: 1.6rem;
+			cursor: pointer;
+			transition: color 0.2s ease-in;
+
+			&:hover {
+				color: $primary-color;
+			}
+		}
+
+		&__price,
+		&__quantity {
+			font-size: 1.4rem;
+			margin-top: 5px;
+		}
+
+		&__price {
+			color: $primary-color;
+			font-weight: 600;
+		}
+
+		&__action {
+			font-size: 2rem;
+			color: $sub-text-color;
+			cursor: pointer;
+			margin-right: 5px;
+			transition: color 0.2s ease-in-out;
+
+			&:hover {
+				color: $primary-color;
+			}
+		}
+	}
+
+	&__bottom {
+		padding: 15px;
+	}
+
+	&__total-price {
+		@include flex(center, space-between);
+		font-size: 1.5rem;
+
+		& span {
+			color: $primary-color;
+			font-weight: 600;
+		}
+	}
+
+	&-page {
+		&--empty {
+			padding: 50px 0;
+
+			@include flex(center, center);
+			flex-direction: column;
+
+			& img {
+				width: 300px;
+			}
+
+			& p {
+				font-size: 1.6rem;
+				color: $sub-text-color;
+				margin-bottom: 20px;
+			}
+
+			& a {
+				min-width: 200px;
+			}
+		}
+
+		&--margin {
+			&.cart-page__item {
+				margin: 20px 0;
+				padding: 20px 40px;
+				color: $sub-text-color;
+				text-transform: capitalize;
+			}
+		}
+
+		&__list {
+			padding: 20px 40px;
+		}
+
+		&__list &__item {
+			padding: 20px 0;
+			border-bottom: 1px solid $border-color;
+
+			&__product {
+				flex: 0 0 35%;
+				color: $text-color;
+				@include flex(center);
+
+				& img {
+					width: 80px;
+					height: 80px;
+					object-fit: cover;
+					border: 1px solid $border-color;
+				}
+
+				& p {
+					margin-left: 20px;
+				}
+			}
+
+			&__price,
+			&__total {
+				color: $primary-color;
+				font-weight: 500;
+			}
+
+			&__quantity {
+				&__calculate {
+					max-width: 100%;
+					@include flex(stretch, center);
+
+					& input {
+						flex: 0 0 100%;
+						max-width: 100%;
+						text-align: center;
+						border: 1px solid $border-color;
+						padding: 6px 0;
+						border-radius: 10px;
+
+						&::-webkit-outer-spin-button,
+						&::-webkit-inner-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+						}
+
+						&[type="number"] {
+							-moz-appearance: textfield;
+						}
+					}
+				}
+			}
+
+			&__action {
+				& p {
+					font-size: 1.8rem;
+					color: $sub-text-color;
+					cursor: pointer;
+
+					& i:hover {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+
+		&__item {
+			@include flex(center);
+			font-size: 1.5rem;
+			border-radius: 3px;
+
+			&__checkbox {
+				flex: 0 0 5%;
+				max-width: 5%;
+				text-align: center;
+			}
+
+			&__product {
+				flex: 0 0 35%;
+				max-width: 35%;
+				color: $text-color;
+			}
+
+			&__price {
+				flex: 0 0 17%;
+				max-width: 17%;
+				text-align: center;
+			}
+
+			&__quantity {
+				flex: 0 0 10%;
+				max-width: 10%;
+				text-align: center;
+			}
+
+			&__total {
+				flex: 0 0 17%;
+				max-width: 17%;
+				text-align: center;
+			}
+
+			&__action {
+				flex: 0 0 16%;
+				max-width: 16%;
+				text-align: center;
+			}
+
+			&__footer-action {
+				flex: 0 0 45%;
+				max-width: 45%;
+
+				@include flex(center);
+				column-gap: 20px;
+
+				font-size: 1.6rem;
+				color: $text-color;
+
+				& p,
+				& label {
+					cursor: pointer;
+					user-select: none;
+				}
+
+				& .color {
+					color: $primary-color;
+				}
+			}
+
+			&__summary {
+				flex: 0 0 50%;
+				max-width: 50%;
+				text-transform: none;
+
+				@include flex(center);
+				font-size: 1.6rem;
+
+				& p {
+					margin-right: 20px;
+					color: $text-color;
+
+					& span {
+						color: $primary-color;
+						font-weight: 500;
+					}
+				}
+
+				& button {
+					flex: 1;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+.pagination--wrap {
+	padding: 20px 0;
+	@include flex(center, center);
+	background-color: white;
+}
+
+.pagination {
+	background-color: unset;
+	& .page-item {
+		border: unset;
+		border-radius: 3px;
+		overflow: hidden;
+		margin: 0 10px;
+		@include flex(center, center);
+
+		&:first-child,
+		&:last-child {
+			border: 1px solid $border-color;
+		}
+
+		&.disabled .page-link {
+			background-color: unset;
+		}
+
+		&.active .page-link {
+			background-color: $primary-color;
+			border-color: $primary-color;
+		}
+	}
+
+	& .page-link {
+		font-size: 1.6rem;
+		border: unset;
+		color: $text-color;
+		background-color: transparent;
+
+		&:focus {
+			outline: unset;
+			box-shadow: none;
+		}
+	}
+}

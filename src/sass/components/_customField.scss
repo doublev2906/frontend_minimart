@@ -1,0 +1,152 @@
+.input {
+	flex: 1;
+
+	::placeholder {
+		color: $sub-text-color;
+		opacity: 1;
+	}
+
+	:-ms-input-placeholder {
+		color: $sub-text-color;
+	}
+
+	::-ms-input-placeholder {
+		color: $sub-text-color;
+	}
+
+	margin: 15px 0;
+	&__label {
+		font-size: 1.5rem;
+		font-weight: 500;
+		text-transform: capitalize;
+		margin-top: 10px;
+	}
+
+	&__control {
+		font-size: 1.4rem;
+		padding: 10px;
+		max-height: 500px;
+		width: 100%;
+
+		&::-webkit-scrollbar-track {
+			border-radius: 10px;
+			background-color: transparent;
+		}
+
+		&::-webkit-scrollbar {
+			width: 6px;
+			background-color: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background-color: #ccc;
+		}
+	}
+
+	&__error {
+		font-size: 1.2rem;
+		margin-top: 5px;
+	}
+
+	&__password {
+		position: relative;
+
+		&.is-invalid .input__icon {
+			display: none;
+		}
+	}
+
+	&__icon {
+		display: none;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 15px;
+		cursor: pointer;
+
+		&.hide {
+			display: inline-block;
+		}
+
+		&.show {
+			display: inline-block;
+		}
+	}
+}
+
+.select {
+	flex: 1;
+	font-size: 1.4rem;
+	cursor: pointer;
+
+	margin: 15px 0;
+	&__label {
+		font-size: 1.5rem;
+		font-weight: 500;
+		text-transform: capitalize;
+	}
+
+	&__input__control {
+		padding: 4px;
+	}
+
+	.is-invalid &__input__control {
+		&:hover {
+			border-color: #dc3545;
+		}
+
+		&--is-focused {
+			box-shadow: 0 0 1px #dc3545;
+		}
+	}
+
+	&__error {
+		font-size: 1.2rem;
+		margin-top: 5px;
+	}
+}
+
+.preview {
+	overflow-x: scroll;
+	&__list {
+		@include flex();
+		margin-top: 20px;
+		column-gap: 15px;
+	}
+
+	&__item {
+		position: relative;
+	}
+
+	&__btn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+
+		cursor: pointer;
+		font-size: 1.4rem;
+		transition: 0.25s ease-in-out;
+
+		&:hover {
+			color: var(--bs-danger);
+		}
+	}
+
+	&__img {
+		max-width: 100px;
+		border-radius: 5px;
+		object-fit: contain;
+
+		border: 1px solid $border-color;
+	}
+}
+
+.CkEditor {
+	margin: 20px 0;
+}
+
+.ck.ck-reset.ck-editor.ck-rounded-corners {
+	z-index: 0;
+	font-size: 1.4rem;
+}

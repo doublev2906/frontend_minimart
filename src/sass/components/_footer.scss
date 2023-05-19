@@ -1,0 +1,187 @@
+.footer {
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	padding: 10px 0 180px;
+
+	&__container {
+		padding-top: 50px;
+	}
+
+	&__logo {
+		margin-bottom: 20px;
+	}
+
+	&__info {
+		font-size: 1.3rem;
+		color: $sub-text-color;
+
+		&__title {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__contact {
+		&__item {
+			@include flex(center);
+			margin-bottom: 15px;
+
+			&__img {
+				font-size: 2rem;
+				margin-right: 15px;
+			}
+
+			&__link {
+				transition: color 0.2s ease-in;
+
+				&:hover {
+					color: $primary-color;
+				}
+			}
+		}
+	}
+
+	&__list {
+		padding: 0 20px;
+		border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
+
+		&__title {
+			font-size: 1.8rem;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__item {
+		width: fit-content;
+		margin-bottom: 10px;
+		font-size: 1.4rem;
+		transition: all 0.2s ease-in-out;
+		cursor: pointer;
+		color: $sub-text-color;
+
+		&:hover {
+			color: $primary-color;
+			transform: translateX(8px);
+		}
+	}
+
+	&__mail {
+		padding: 0 20px;
+
+		&__title {
+			font-size: 1.8rem;
+			margin-bottom: 20px;
+		}
+
+		&__desc {
+			font-size: 1.4rem;
+			margin-bottom: 10px;
+		}
+
+		&__form {
+			margin-bottom: 30px;
+		}
+
+		&__input {
+			font-size: 1.4rem;
+			padding: 8px 20px;
+			border-radius: 5px;
+		}
+
+		&__btn {
+			background-color: $secondary-color;
+			padding: 0 10px;
+			font-size: 2rem;
+			border: unset;
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				background-color: $primary-color;
+			}
+		}
+	}
+
+	&__social {
+		&__title {
+			font-size: 1.8rem;
+		}
+
+		&__list {
+			@include flex(center);
+			column-gap: 15px;
+		}
+
+		&__item {
+			@include flex(center, center);
+			background-color: currentColor;
+			width: 30px;
+			height: 30px;
+			border-radius: 10px;
+			border: 1px solid currentColor;
+			cursor: pointer;
+			transition: all 0.25s ease-in;
+
+			& i {
+				font-size: 1.6rem;
+				color: white;
+			}
+
+			&:hover {
+				background-color: white;
+
+				& i {
+					color: currentColor;
+				}
+			}
+
+			&:first-child {
+				color: #f4574c;
+			}
+
+			&:nth-child(2) {
+				color: #4cd6f4;
+			}
+
+			&:nth-child(3) {
+				color: #3b5999;
+			}
+
+			&:last-child {
+				color: #0976b4;
+			}
+		}
+	}
+
+	&__copyright {
+		@include flex(center, space-between);
+		font-size: 1.4rem;
+		margin-top: 40px;
+
+		& span {
+			color: $primary-color;
+		}
+
+		&__btn {
+			color: $sub-text-color;
+			border: 1px solid currentColor;
+			background-color: transparent;
+			font-size: 1.4rem;
+			padding: 10px 15px;
+
+			& i {
+				font-size: 1.2rem;
+				margin-left: 10px;
+			}
+
+			&:hover {
+				background-color: $primary-color;
+				border-color: $primary-color;
+			}
+
+			&:focus {
+				background-color: $primary-color;
+				border-color: $primary-color;
+			}
+		}
+	}
+}

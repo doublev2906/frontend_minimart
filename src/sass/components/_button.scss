@@ -1,0 +1,204 @@
+.add-cart-btn--wrap {
+	position: absolute;
+	margin: 0;
+	z-index: 50;
+	top: 50%;
+	left: 0;
+	right: 0;
+
+	text-align: center;
+
+	& .add-cart-btn {
+		margin: 0;
+		transform: scale(0);
+		transition: 0.2s ease-in;
+		transform-origin: center;
+
+		&:focus {
+			background-color: $secondary-color;
+			color: white;
+			box-shadow: none;
+			outline: none;
+			border-color: $secondary-color;
+		}
+
+		&:hover {
+			background-color: $secondary-color;
+			color: white;
+			border-color: $secondary-color;
+		}
+	}
+}
+
+.add-cart-btn {
+	font-size: 1.6rem;
+	padding: 10px 15px;
+	background-color: $primary-color;
+	border: 1px solid $primary-color;
+	text-transform: capitalize;
+	margin-top: 30px;
+	margin-right: 20px;
+	transition: 0.2s ease-in;
+	border-radius: 3px;
+
+	&:focus {
+		background-color: $primary-color;
+		color: white;
+		box-shadow: none;
+		outline: none;
+		border-color: $primary-color;
+	}
+
+	&:hover {
+		background-color: white;
+		color: $primary-color;
+		border-color: $primary-color;
+	}
+
+	&--done {
+		background-color: $secondary-color;
+		border: 1px solid $secondary-color;
+
+		&:focus {
+			background-color: $secondary-color;
+			color: white;
+			box-shadow: none;
+			outline: none;
+			border-color: $secondary-color;
+		}
+
+		&:hover {
+			background-color: white;
+			color: $secondary-color;
+			border-color: $secondary-color;
+		}
+	}
+}
+
+.buy-btn {
+	color: white;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+
+	border-radius: 3px;
+	border: 1px solid $third-color;
+
+	background-color: $third-color;
+
+	padding: 10px 15px;
+	margin-top: 20px;
+
+	transition: 0.2s ease-in;
+
+	&--mr0 {
+		margin: 0;
+	}
+
+	&--margin {
+		margin-top: 30px;
+		margin-right: 20px;
+	}
+
+	&:focus {
+		background-color: $third-color;
+		color: white;
+		box-shadow: none;
+		outline: none;
+		border-color: $third-color;
+	}
+
+	&:hover {
+		background-color: white;
+		color: $third-color;
+		border-color: $third-color;
+	}
+}
+
+.btn-normal {
+	color: white;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	min-width: 140px;
+
+	border-radius: 3px;
+	border: 1px solid $third-color;
+
+	background-color: $third-color;
+
+	padding: 5px 15px;
+
+	transition: 0.2s ease-in;
+
+	@include flex(center, center);
+
+	&:focus {
+		background-color: $third-color;
+		color: white;
+		box-shadow: none;
+		outline: none;
+		border-color: $third-color;
+	}
+
+	&:hover {
+		background-color: white;
+		color: $third-color;
+		border-color: $third-color;
+	}
+
+	& i {
+		font-size: 1.4rem;
+		margin-right: 10px;
+	}
+}
+
+.btn-no-border {
+	color: $text-color;
+	font-size: 1.6rem;
+	text-transform: capitalize;
+	min-width: 140px;
+
+	border-radius: 3px;
+	border: 1px solid $border-color;
+
+	background-color: transparent;
+
+	padding: 5px 15px;
+
+	transition: 0.2s ease-in;
+
+	@include flex(center, center);
+
+	&:focus {
+		background-color: transparent;
+		color: $text-color;
+		box-shadow: none;
+		outline: none;
+		border-color: $border-color;
+	}
+
+	&:hover {
+		background-color: $sub-text-color;
+		color: white;
+		border-color: $border-color;
+	}
+
+	& i {
+		font-size: 1.4rem;
+		margin-right: 10px;
+	}
+}
+
+.scroll-btn {
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	font-size: 2.6rem;
+	min-width: 50px;
+	min-height: 50px;
+	border-radius: 50%;
+	color: $primary-color;
+	cursor: pointer;
+}

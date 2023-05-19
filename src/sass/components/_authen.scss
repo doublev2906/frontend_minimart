@@ -1,0 +1,128 @@
+.authen {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	&__header {
+		padding: 20px 0;
+		background-color: white;
+
+		@include mobileAndTablet {
+			padding: 20px 15px;
+		}
+
+		&--wrap {
+			@include mobile {
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		&__title {
+			font-size: 2.8rem;
+			margin-left: 20px;
+			font-weight: 400;
+
+			@include mobile {
+				display: none;
+			}
+		}
+
+		&__text {
+			font-size: 1.5rem;
+			color: $third-color;
+
+			@include mobile {
+				margin-top: 15px;
+			}
+		}
+	}
+
+	&__content {
+		background-color: $primary-color;
+		padding: 50px 0;
+		flex: 1;
+
+		@include flex(center, center);
+	}
+
+	&__form {
+		width: 45%;
+		background-color: white;
+		padding: 20px 40px;
+		margin: 0 auto;
+
+		@include mobileAndTablet {
+			width: 80%;
+		}
+
+		&--register {
+			width: 60%;
+
+			@include mobileAndTablet {
+				width: 80%;
+			}
+		}
+
+		border-radius: 10px;
+
+		font-size: 1.4rem;
+
+		&__title {
+			font-size: 2.4rem;
+			margin-bottom: 15px;
+		}
+
+		&__sub-title {
+			font-size: 1.4rem;
+			color: $third-color;
+		}
+
+		& .form-control {
+			padding: 10px 15px;
+			font-size: 1.4rem;
+		}
+	}
+
+	&__btn {
+		display: block;
+		width: 100%;
+
+		text-transform: uppercase;
+
+		font-size: 1.6rem;
+
+		background-color: $third-color;
+		color: white;
+		border: $third-color;
+
+		padding: 10px 0;
+		margin-top: 30px;
+
+		&:hover {
+			background-color: rgba($color: $third-color, $alpha: 0.8);
+			color: rgba($color: white, $alpha: 0.8);
+		}
+		&:focus {
+			background-color: $third-color;
+			color: white;
+			border: $third-color;
+		}
+
+		&--short {
+			width: 60%;
+		}
+	}
+
+	&__text {
+		text-align: center;
+
+		margin: 20px 0 10px;
+	}
+
+	&__link {
+		color: $primary-color;
+		cursor: pointer;
+	}
+}

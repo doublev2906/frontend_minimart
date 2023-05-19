@@ -1,0 +1,301 @@
+.home {
+	&__banner {
+		margin-top: 30px;
+
+		&__item {
+			overflow: hidden;
+		}
+
+		&__img {
+			transition: all 0.25s ease-in-out;
+			transform-origin: center;
+			cursor: pointer;
+			width: 100%;
+			object-fit: contain;
+
+			&:hover {
+				transform: scale(1.1);
+				filter: opacity(0.8);
+			}
+		}
+	}
+
+	&__link--wrap {
+		padding: 15px 0;
+		margin-bottom: 20px;
+		position: relative;
+		border-bottom: 1px solid $border-color;
+
+		&::before {
+			content: "";
+			display: block;
+			border: 3px solid $secondary-color;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 50px;
+		}
+	}
+
+	&__link {
+		display: inline-block;
+		font-size: 2.8rem;
+		font-weight: 500;
+		transition: 0.25s ease-in;
+
+		&:hover {
+			color: $secondary-color;
+		}
+	}
+
+	&__slider {
+		margin: 20px 0;
+
+		& .slick-slide {
+			padding-right: 0;
+		}
+
+		& .product-card--wrap {
+			padding: 0 15px 0 0;
+		}
+	}
+
+	&__post {
+		&__list {
+			background-color: white;
+			padding: 20px 15px;
+			margin-bottom: 50px;
+		}
+
+		&__item {
+			@include flex();
+
+			@include tablet {
+				padding: 10px 0;
+			}
+
+			&__img {
+				display: flex;
+				flex: 0 0 40%;
+				max-width: 40%;
+
+				& img {
+					border-radius: 3px;
+					align-self: center;
+				}
+			}
+
+			&__content {
+				margin-left: 10px;
+			}
+
+			&__link {
+				display: -webkit-box;
+				font-size: 1.6rem;
+				font-weight: 500;
+				width: 100%; // chiều rộng bằng khối bao nó
+				overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+				text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				margin-bottom: 10px;
+				transition: 0.25s ease-in;
+
+				&:hover {
+					color: $secondary-color;
+				}
+			}
+		}
+	}
+}
+
+.admin__home {
+	background-color: white;
+	padding: 30px 40px;
+
+	&__heading {
+		font-size: 2rem;
+		font-weight: 500;
+		margin-bottom: 10px;
+	}
+
+	&__sub-heading {
+		font-size: 1.2rem;
+		color: $sub-text-color;
+		margin-bottom: 20px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid $border-color;
+	}
+
+	&__info {
+		@include flex(center);
+		row-gap: 20px;
+		flex-wrap: wrap;
+	}
+
+	&__item {
+		display: block;
+		flex: 0 0 25%;
+		max-width: 25%;
+		padding: 20px;
+		text-align: center;
+		position: relative;
+		transition: 0.25s linear;
+		border-radius: 5px;
+
+		@include mobileAndTablet {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+
+		&:hover {
+			background-color: $border-color;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			transform: translateY(50%);
+			right: 0;
+			width: 1px;
+			height: 60%;
+			background-color: $border-color;
+		}
+
+		&__number {
+			font-size: 3rem;
+			color: $primary-color;
+			margin-bottom: 10px;
+		}
+
+		&__text {
+			font-size: 1.6rem;
+			font-weight: 500;
+		}
+	}
+}
+
+.admin {
+	&__menu__btn {
+		position: absolute;
+		top: 400px;
+		left: 10px;
+		padding: 10px 15px;
+		background-color: $primary-color;
+		color: white;
+		border-radius: 5px;
+		z-index: 50;
+
+		font-size: 2.6rem;
+
+		@include pc {
+			display: none;
+		}
+	}
+
+	&__menu--wrap {
+		position: fixed;
+		inset: 0;
+		background-color: rgba($color: #000000, $alpha: 0.3);
+		z-index: 90;
+
+		@include pc {
+			display: none;
+		}
+
+		visibility: visible;
+		opacity: 1;
+
+		transition: 0.4s ease-in;
+
+		&.hidden {
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		& .navbar--admin {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -100%;
+			width: 300px;
+			background-color: white;
+			padding: 30px 15px 0;
+
+			transition: 0.4s ease-in;
+
+			&.active {
+				left: 0;
+			}
+		}
+	}
+
+	&__content {
+		background-color: $page-background;
+		margin-top: $admin-header-height;
+
+		@include mobileAndTablet {
+			margin-top: 0;
+		}
+	}
+
+	&__side {
+		background-color: white;
+		box-shadow: 2px 0px 4px rgba($color: #000000, $alpha: 0.2);
+		position: fixed;
+		height: calc(100% - 71px);
+		width: 225px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+
+		@include mobileAndTablet {
+			display: none;
+		}
+
+		&::-webkit-scrollbar-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+			border-radius: 10px;
+			background-color: #f5f5f5;
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		&::-webkit-scrollbar {
+			width: 6px;
+			background-color: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+			background-color: $sub-text-color;
+			visibility: hidden;
+			opacity: 0;
+		}
+
+		&:hover {
+			&::-webkit-scrollbar-track,
+			&::-webkit-scrollbar-thumb {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+
+	&__has-side {
+		position: relative;
+		margin-left: 225px;
+		min-height: calc(100vh - 150px);
+		padding-bottom: 150px;
+
+		@include mobileAndTablet {
+			margin-left: 0;
+		}
+	}
+
+	&__component {
+		padding: 20px 15px 0;
+	}
+}
